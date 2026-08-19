@@ -2517,10 +2517,14 @@ html.no-csstransitions .intro-content__bottom {
  *
  * ------------------------------------------------------------------- */
 .s-info {
-  padding-top: 16rem;
+  padding-top: 8rem;
   padding-bottom: 8rem;
   background-color: #ffffff;
   position: relative;
+}
+
+.s-info .tab-content__item-header {
+  margin-bottom: 6rem;
 }
 
 .s-info .vert-line {
