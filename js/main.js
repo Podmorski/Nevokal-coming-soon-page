@@ -227,29 +227,6 @@
     };
 
 
-   /* reveal info content (top-to-bottom variant of the hero effect)
-    * ------------------------------------------------------ */
-    const ssInfoReveal = function() {
-
-        const $info = $('#info');
-        if (!$info.length) return;
-
-        // only enable the pre-hide/animation when JS is running
-        $('html').addClass('ss-info-anim');
-
-        const reveal = function() {
-            if (($WIN.scrollTop() + $WIN.height()) > ($info.offset().top + 120)) {
-                $info.addClass('info-revealed');
-                $WIN.off('scroll.inforeveal', reveal);
-            }
-        };
-
-        $WIN.on('scroll.inforeveal', reveal);
-        reveal();
-
-    };
-
-
    /* ajaxchimp
     * ------------------------------------------------------ */
     const ssAjaxChimp = function() {
@@ -298,7 +275,6 @@
         ssSmoothScroll();
         ssBackToTop();
         ssIntroScroll();
-        ssInfoReveal();
         ssAjaxChimp();
 
     })();

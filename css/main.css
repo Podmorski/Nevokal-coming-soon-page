@@ -2198,25 +2198,6 @@ html.no-csstransitions .intro-content__bottom {
 }
 
 
-/* -------------------------------------------------------------------
- * ## animate info content (top-to-bottom variant of the hero effect)
- * ------------------------------------------------------------------- */
-html.ss-info-anim .s-info .tab-content {
-  opacity: 0;
-}
-
-html.ss-info-anim .s-info.info-revealed .tab-content {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-
 /* ------------------------------------------------------------------- 
  * ## intro animations 
  * ------------------------------------------------------------------- */
@@ -2280,41 +2261,6 @@ html.ss-info-anim .s-info.info-revealed .tab-content {
     visibility: hidden;
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-}
-
-/* fade in down (hero effect, top-to-bottom) */
-@-webkit-keyframes fadeInDown {
-  from {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
   }
 
   to {
