@@ -57,15 +57,17 @@
    /* slick slider
     * ------------------------------------------------------ */
     const ssSlickSlider = function() {
-            
-        $('.intro-slider').slick({
-            arrows: false,
-            dots: false,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            fade: true,
-            speed: 3000
-        });
+        // Only initialize if slider element exists
+        if ($('.intro-slider').length) {
+            $('.intro-slider').slick({
+                arrows: false,
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                fade: true,
+                speed: 3000
+            });
+        }
     };
 
 
@@ -76,6 +78,9 @@
         const modal = document.querySelector(".modal");
         const trigger = document.querySelector(".modal-trigger");
         const closeButton = document.querySelector(".modal__close");
+
+        // Only initialize if modal elements exist
+        if (!modal || !trigger || !closeButton) return;
 
         function toggleModal() {
             modal.classList.toggle("show-modal");
@@ -102,20 +107,22 @@
    /* final countdown
     * ------------------------------------------------------ */
     const ssFinalCountdown = function() {
+        // Only initialize if counter element exists
+        if ($('.counter').length) {
+            const finalDate = '2022/04/07';
 
-        const finalDate = '2022/04/07';
+            $('.counter').countdown(finalDate)
+            .on('update.countdown finish.countdown', function(event) {
 
-        $('.counter').countdown(finalDate)
-        .on('update.countdown finish.countdown', function(event) {
+                const str = '<div class=\"counter__time days\">%D&nbsp;<span>D</span></div>' +
+                            '<div class=\"counter__time hours\">%H&nbsp;<span>H</span></div>' +
+                            '<div class=\"counter__time minutes\">%M&nbsp;<span>M</span></div>' +
+                            '<div class=\"counter__time seconds\">%S&nbsp;<span>S</span></div>';
+                        
+                $(this).html(event.strftime(str));
 
-            const str = '<div class=\"counter__time days\">%D&nbsp;<span>D</span></div>' +
-                        '<div class=\"counter__time hours\">%H&nbsp;<span>H</span></div>' +
-                        '<div class=\"counter__time minutes\">%M&nbsp;<span>M</span></div>' +
-                        '<div class=\"counter__time seconds\">%S&nbsp;<span>S</span></div>';
-                    
-            $(this).html(event.strftime(str));
-
-        });
+            });
+        }
     };
 
 
@@ -196,31 +203,33 @@
    /* ajaxchimp
     * ------------------------------------------------------ */
     const ssAjaxChimp = function() {
-            
-        $('#mc-form').ajaxChimp({
-            language: 'es',
-            url: cfg.mailChimpURL
-        });
+        // Only initialize if mailchimp form exists
+        if ($('#mc-form').length && typeof $.ajaxChimp !== 'undefined') {
+            $('#mc-form').ajaxChimp({
+                language: 'es',
+                url: cfg.mailChimpURL
+            });
 
-        // Mailchimp translation
-        //
-        //  Defaults:
-        //	 'submit': 'Submitting...',
-        //  0: 'We have sent you a confirmation email',
-        //  1: 'Please enter a value',
-        //  2: 'An email address must contain a single @',
-        //  3: 'The domain portion of the email address is invalid (the portion after the @: )',
-        //  4: 'The username portion of the email address is invalid (the portion before the @: )',
-        //  5: 'This email address looks fake or invalid. Please enter a real email address'
+            // Mailchimp translation
+            //
+            //  Defaults:
+            //   'submit': 'Submitting...',
+            //  0: 'We have sent you a confirmation email',
+            //  1: 'Please enter a value',
+            //  2: 'An email address must contain a single @',
+            //  3: 'The domain portion of the email address is invalid (the portion after the @: )',
+            //  4: 'The username portion of the email address is invalid (the portion before the @: )',
+            //  5: 'This email address looks fake or invalid. Please enter a real email address'
 
-        $.ajaxChimp.translations.es = {
-            'submit': 'Submitting...',
-            0: '<i class="fas fa-check"></i> We have sent you a confirmation email',
-            1: '<i class="fas fa-exclamation-triangle"></i> You must enter a valid e-mail address.',
-            2: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
-            3: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
-            4: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
-            5: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.'
+            $.ajaxChimp.translations.es = {
+                'submit': 'Submitting...',
+                0: '<i class="fas fa-check"></i> We have sent you a confirmation email',
+                1: '<i class="fas fa-exclamation-triangle"></i> You must enter a valid e-mail address.',
+                2: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+                3: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+                4: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+                5: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.'
+            }
         }
     };
 
