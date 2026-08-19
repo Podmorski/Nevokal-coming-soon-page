@@ -189,8 +189,17 @@ p.lead {
   font-weight: 400;
   font-size: 2.6rem;
   line-height: 1.846;
-  margin-bottom: 3.6rem;
+  margin-bottom: 1.6rem;
   color: rgba(255, 255, 255, 0.9);
+}
+
+p.lead-sub {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 3.6rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (max-width:1200px) {
