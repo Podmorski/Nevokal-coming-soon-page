@@ -200,6 +200,56 @@
     };
 
 
+   /* intro social smooth scroll (eased slide down to info)
+    * ------------------------------------------------------ */
+    const ssIntroScroll = function() {
+
+        // easing that mirrors the hero text animation (cubic-bezier(0.23, 1, 0.32, 1) == easeOutQuint)
+        if (typeof $.easing.introEase !== 'function') {
+            $.easing.introEase = function (x) {
+                return 1 - Math.pow(1 - x, 5);
+            };
+        }
+
+        $('.intro-social a[href^="#"]').on('click', function (e) {
+            const target = this.hash;
+            const $target = $(target);
+            if (!$target.length) return;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 1400, 'introEase');
+        });
+
+    };
+
+
+   /* reveal info content (top-to-bottom variant of the hero effect)
+    * ------------------------------------------------------ */
+    const ssInfoReveal = function() {
+
+        const $info = $('#info');
+        if (!$info.length) return;
+
+        // only enable the pre-hide/animation when JS is running
+        $('html').addClass('ss-info-anim');
+
+        const reveal = function() {
+            if (($WIN.scrollTop() + $WIN.height()) > ($info.offset().top + 120)) {
+                $info.addClass('info-revealed');
+                $WIN.off('scroll.inforeveal', reveal);
+            }
+        };
+
+        $WIN.on('scroll.inforeveal', reveal);
+        reveal();
+
+    };
+
+
    /* ajaxchimp
     * ------------------------------------------------------ */
     const ssAjaxChimp = function() {
@@ -247,6 +297,8 @@
         ssAlertBoxes();
         ssSmoothScroll();
         ssBackToTop();
+        ssIntroScroll();
+        ssInfoReveal();
         ssAjaxChimp();
 
     })();
