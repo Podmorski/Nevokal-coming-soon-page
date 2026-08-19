@@ -2517,7 +2517,7 @@ html.no-csstransitions .intro-content__bottom {
  *
  * ------------------------------------------------------------------- */
 .s-info {
-  padding-top: 8rem;
+  padding-top: 16rem;
   padding-bottom: 8rem;
   background-color: #ffffff;
   position: relative;
@@ -2640,7 +2640,7 @@ html.no-csstransitions .intro-content__bottom {
 /* tab content
  * -------------------------------------- */
 .tab-content {
-  margin-top: 3.2rem;
+  margin-top: 6.4rem;
   padding-right: 25vw;
   position: relative;
 }
