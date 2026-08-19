@@ -1608,7 +1608,7 @@ input::-moz-focus-inner {
 .s-intro--static {
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
+  background-size: auto 100%;
   background-image: url(../images/bg-static.jpg);
 }
 
