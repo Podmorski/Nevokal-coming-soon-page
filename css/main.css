@@ -190,7 +190,7 @@ p.lead {
   font-size: 2.6rem;
   line-height: 1.846;
   margin-bottom: 3.6rem;
-  color: #000000;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media screen and (max-width:1200px) {
@@ -1776,15 +1776,15 @@ input::-moz-focus-inner {
 .intro-content__text h3 {
   display: inline-block;
   font-family: "Gothic A1", sans-serif;
-  font-weight: 400;
-  font-size: 1.4rem;
-  line-height: 2rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem;
   text-transform: uppercase;
   letter-spacing: .3em;
   color: #8dc63f;
   padding-left: .6rem;
   margin-top: 0;
-  margin-bottom: .8rem;
+  margin-bottom: 1.6rem;
   position: relative;
 }
 
