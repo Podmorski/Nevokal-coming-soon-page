@@ -2545,10 +2545,8 @@ html.no-csstransitions .intro-content__bottom {
 .s-info::before {
   display: block;
   content: "";
-  width: 55%;
+  width: 40%;
   height: 65%;
-  background-color: #ffffff;
-  opacity: .5;
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;
